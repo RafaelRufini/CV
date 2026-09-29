@@ -1,5 +1,42 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+/* ============ Navbar ============ */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+
+navToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('is-open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+});
+
+navLinks.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.style.background = window.scrollY > 20
+    ? 'rgba(11, 12, 16, 0.9)'
+    : 'rgba(11, 12, 16, 0.7)';
+});
+
+/* ============ Scroll reveal (lower sections) ============ */
+const revealTargets = document.querySelectorAll('.section-inner');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+revealTargets.forEach((el) => revealObserver.observe(el));
+
+/* ============ Timeline graph (connectors + detail panel) ============ */
 const canvas = document.getElementById('mapCanvas');
 const svg = document.getElementById('connectorSvg');
 const nodes = document.querySelectorAll('.map-node');
@@ -15,6 +52,7 @@ const connections = [
   ['ti-apps', 'bridge-ti-gestao'],
   ['bridge-ti-gestao', 'gestao-pos'],
   ['edu-grad', 'ti-eng', 150],
+  ['edu-pos2', 'ti-eng', 60],
 ];
 
 function center(el) {

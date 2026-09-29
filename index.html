@@ -4,126 +4,322 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rafael Oliveira Rufini</title>
-<meta name="description" content="Linha do tempo de Rafael Oliveira Rufini — três trilhas paralelas em Tecnologia, Gestão e Educação, e onde elas se conectam">
+<meta name="description" content="Site pessoal de Rafael Oliveira Rufini — três trilhas paralelas em Tecnologia, Gestão e Educação, e onde elas se conectam">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="hero">
-  <p class="hero-kicker">Tecnologia · Gestão · Educação</p>
-  <h1 class="hero-name">Rafael Oliveira Rufini</h1>
-  <p class="hero-tagline">Três trilhas percorridas em paralelo — clique em qualquer marco para ver os detalhes, e veja onde elas se cruzam.</p>
-  <a href="http://lattes.cnpq.br/6549756672798382" target="_blank" rel="noopener" class="btn-ghost">Currículo Lattes ↗</a>
-</header>
+<nav class="navbar" id="navbar">
+  <a href="#hero" class="nav-brand">RR</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">Linha do tempo</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#ti" class="link-ti">TI</a></li>
+    <li><a href="#gestao" class="link-gestao">Gestão</a></li>
+    <li><a href="#educacao" class="link-educacao">Educação</a></li>
+    <li><a href="#transdisciplinaridade">Interseções</a></li>
+  </ul>
+</nav>
 
-<div class="legend">
-  <span class="legend-item"><span class="legend-dot legend-dot--ti"></span>Tecnologia da Informação</span>
-  <span class="legend-item"><span class="legend-dot legend-dot--gestao"></span>Gestão</span>
-  <span class="legend-item"><span class="legend-dot legend-dot--educacao"></span>Educação</span>
-  <span class="legend-item"><span class="legend-dot legend-dot--bridge"></span>Interseção entre áreas</span>
-</div>
+<div class="intro-wrap">
+  <header id="hero" class="hero">
+    <p class="hero-kicker">Tecnologia · Gestão · Educação</p>
+    <h1 class="hero-name">Rafael Oliveira Rufini</h1>
+    <p class="hero-tagline">Três trilhas percorridas em paralelo — clique em qualquer marco para ver os detalhes, e veja onde elas se cruzam.</p>
+    <a href="http://lattes.cnpq.br/6549756672798382" target="_blank" rel="noopener" class="btn-ghost">Currículo Lattes ↗</a>
+  </header>
 
-<p class="scroll-hint-text">Arraste para o lado para percorrer a linha do tempo →</p>
+  <div class="legend">
+    <span class="legend-item"><span class="legend-dot legend-dot--ti"></span>Tecnologia da Informação</span>
+    <span class="legend-item"><span class="legend-dot legend-dot--gestao"></span>Gestão</span>
+    <span class="legend-item"><span class="legend-dot legend-dot--educacao"></span>Educação</span>
+    <span class="legend-item"><span class="legend-dot legend-dot--bridge"></span>Interseção entre áreas</span>
+  </div>
 
-<div class="map-wrap">
-  <div class="map-canvas" id="mapCanvas">
+  <p class="scroll-hint-text">Arraste para o lado para percorrer a linha do tempo →</p>
 
-    <div class="year-axis" aria-hidden="true">
-      <span style="left:9.3%">2020</span>
-      <span style="left:35.81%">2022</span>
-      <span style="left:62.33%">2024</span>
-      <span style="left:88.84%">2026</span>
+  <div class="map-wrap">
+    <div class="map-canvas" id="mapCanvas">
+
+      <div class="year-axis" aria-hidden="true">
+        <span style="left:9.3%">2020</span>
+        <span style="left:35.81%">2022</span>
+        <span style="left:62.33%">2024</span>
+        <span style="left:88.84%">2026</span>
+      </div>
+
+      <svg class="connectors" id="connectorSvg"></svg>
+
+      <div class="track-label track-label--ti" style="top:130px">TI</div>
+      <div class="track-line track-line--ti" style="top:130px"></div>
+
+      <div class="track-label track-label--gestao" style="top:330px">Gestão</div>
+      <div class="track-line track-line--gestao" style="top:330px"></div>
+
+      <div class="track-label track-label--educacao" style="top:530px">Educação</div>
+      <div class="track-line track-line--educacao" style="top:530px"></div>
+
+      <button class="map-node map-node--ti" id="ti-ads" style="left:16.28%; top:130px;" data-title="Análise e Desenvolvimento de Sistemas" data-tag="Graduação" data-year="2020 — 2022" data-org="Faculdade de Tecnologia de Guarulhos (Fatec GR)" data-desc="TCC: &quot;Planejamento de necessidade de materiais (MRP): desenvolvimento de software de apoio para cursos tecnológicos.&quot; Orientadora: Jane Maria dos Santos Eberson.">
+        <span class="node-dot"></span>
+        <span class="node-label"><span class="node-category">Graduação</span><strong>Análise e Desenvolvimento de Sistemas</strong><br>2020–22</span>
+      </button>
+
+      <button class="map-node map-node--ti" id="ti-apps" style="left:50%; top:130px;" data-title="Projetos de Aplicativos Móveis Multiplataforma" data-tag="Pós-graduação" data-year="2023 — 2024" data-org="Centro Universitário União das Américas Descomplica" data-desc="">
+        <span class="node-dot"></span>
+        <span class="node-label"><span class="node-category">Pós-graduação</span><strong>Apps Móveis</strong><br>2023–24</span>
+      </button>
+
+      <button class="map-node map-node--ti" id="ti-atuacao" style="left:62.33%; top:130px;" data-title="Técnico em Tecnologia da Informação" data-tag="Experiência" data-year="2024 — atual" data-org="Prefeitura Municipal de Guarulhos — servidor público, 40h semanais" data-desc="">
+        <span class="node-dot"></span>
+        <span class="node-label"><span class="node-category">Experiência</span><strong>Técnico em TI</strong><br>2024–atual</span>
+      </button>
+
+      <button class="map-node map-node--ti" id="ti-eng" style="left:76.74%; top:130px;" data-title="Bacharelado em Engenharia de Computação" data-tag="Graduação" data-year="2025 — em andamento" data-org="Universidade Virtual do Estado de São Paulo (UNIVESP)" data-desc="">
+        <span class="node-dot"></span>
+        <span class="node-label"><span class="node-category">Graduação</span><strong>Engenharia de Computação</strong><br>2025–atual</span>
+      </button>
+
+      <button class="map-node map-node--gestao" id="gestao-atuacao" style="left:38.37%; top:330px;" data-title="Agente Técnico e Administrativo" data-tag="Experiência" data-year="2023 — 2024" data-org="Centro Estadual de Educação Tecnológica Paula Souza (CEETEPS) — servidor público, 40h semanais" data-desc="">
+        <span class="node-dot"></span>
+        <span class="node-label"><span class="node-category">Experiência</span><strong>Agente Técnico</strong><br>2023–24</span>
+      </button>
+
+      <button class="map-node map-node--gestao" id="gestao-grad" style="left:55.81%; top:330px;" data-title="Gestão Empresarial" data-tag="Graduação" data-year="2023 — 2025" data-org="Faculdade de Tecnologia de Guarulhos (Fatec GR)" data-desc="TCC: &quot;A implementação da política de lixo zero no meio acadêmico: um estudo de caso.&quot; Orientadora: Elaine Pasqualini.">
+        <span class="node-dot"></span>
+        <span class="node-label"><span class="node-category">Graduação</span><strong>Gestão Empresarial</strong><br>2023–25</span>
+      </button>
+
+      <button class="map-node map-node--gestao" id="gestao-pos" style="left:72.09%; top:330px;" data-title="Gestão Pública" data-tag="Pós-graduação" data-year="2023 — 2024" data-org="Faculdade IBRA de Minas Gerais" data-desc="">
+        <span class="node-dot"></span>
+        <span class="node-label"><span class="node-category">Pós-graduação</span><strong>Gestão Pública</strong><br>2023–24</span>
+      </button>
+
+      <button class="map-node map-node--educacao" id="edu-grad" style="left:53.49%; top:530px;" data-title="Licenciatura em Letras — Português e Inglês" data-tag="Graduação" data-year="2023 — 2025" data-org="Centro Universitário ETEP" data-desc="TCC: &quot;Impactos e desafios da Inteligência Artificial na educação brasileira: uma revisão de literatura integrativa acerca do ChatGPT.&quot;">
+        <span class="node-dot"></span>
+        <span class="node-label"><span class="node-category">Graduação</span><strong>Letras</strong><br>2023–25</span>
+      </button>
+
+      <button class="map-node map-node--educacao" id="edu-pos" style="left:74%; top:530px;" data-title="Docência do Ensino Médio, Técnico e Superior" data-tag="Pós-graduação" data-year="2024 — 2025" data-org="Faculdade Grande São Paulo (FAGRAN)" data-desc="">
+        <span class="node-dot"></span>
+        <span class="node-label"><span class="node-category">Pós-graduação</span><strong>Docência</strong><br>2024–25</span>
+      </button>
+
+      <button class="map-node map-node--educacao" id="edu-pos2" style="left:92%; top:530px;" data-title="Tecnologias Aplicadas à Educação" data-tag="Pós-graduação" data-year="2025 — 2026" data-org="Centro Universitário União das Américas Descomplica" data-desc="">
+        <span class="node-dot"></span>
+        <span class="node-label" style="white-space:normal; max-width:130px;"><span class="node-category">Pós-graduação</span><strong>Tecnologias Aplicadas à Educação</strong><br>2025–26</span>
+      </button>
+
+      <button class="map-node map-node--bridge" id="bridge-ti-gestao" style="left:61.05%; top:230px;" data-title="Especialização em Gestão de Tecnologia da Informação" data-tag="Pós-graduação · Interseção TI × Gestão" data-year="2024" data-org="Faculdade IBRA de Brasília" data-desc="Ponte direta entre as duas áreas: aplicar princípios de gestão à área técnica em que já atuo.">
+        <span class="node-dot node-dot--bridge"></span>
+        <span class="node-label node-label--bridge"><span class="node-category">Pós-graduação</span><strong>Gestão de TI</strong><br>2024</span>
+      </button>
+
+      <button class="map-node map-node--bridge" id="bridge-edu-ti" style="left:80.1%; top:393px;" data-title="Impactos e desafios da IA na educação brasileira" data-tag="Artigo · Interseção Educação × TI" data-year="2025" data-org="TCC — Licenciatura em Letras, Centro Universitário ETEP" data-desc="Pesquisa sobre o uso do ChatGPT em sala de aula, no mesmo momento em que iniciei a Engenharia de Computação — tecnologia e educação avançando lado a lado em 2025.">
+        <span class="node-dot node-dot--bridge"></span>
+        <span class="node-label node-label--bridge"><span class="node-category">Artigo</span><strong>IA na Educação</strong><br>2025</span>
+      </button>
+
     </div>
+  </div>
 
-    <svg class="connectors" id="connectorSvg"></svg>
-
-    <div class="track-label track-label--ti" style="top:130px">TI</div>
-    <div class="track-line track-line--ti" style="top:130px"></div>
-
-    <div class="track-label track-label--gestao" style="top:330px">Gestão</div>
-    <div class="track-line track-line--gestao" style="top:330px"></div>
-
-    <div class="track-label track-label--educacao" style="top:530px">Educação</div>
-    <div class="track-line track-line--educacao" style="top:530px"></div>
-
-    <button class="map-node map-node--ti" id="ti-ads" style="left:16.28%; top:130px;" data-title="Análise e Desenvolvimento de Sistemas" data-tag="Graduação" data-year="2020 — 2022" data-org="Faculdade de Tecnologia de Guarulhos (Fatec GR)" data-desc="TCC: &quot;Planejamento de necessidade de materiais (MRP): desenvolvimento de software de apoio para cursos tecnológicos.&quot; Orientadora: Jane Maria dos Santos Eberson.">
-      <span class="node-dot"></span>
-      <span class="node-label"><span class="node-category">Graduação</span><strong>Análise e Desenvolvimento de Sistemas</strong><br>2020–22</span>
-    </button>
-
-    <button class="map-node map-node--ti" id="ti-apps" style="left:50%; top:130px;" data-title="Projetos de Aplicativos Móveis Multiplataforma" data-tag="Pós-graduação" data-year="2023 — 2024" data-org="Centro Universitário União das Américas Descomplica" data-desc="">
-      <span class="node-dot"></span>
-      <span class="node-label"><span class="node-category">Pós-graduação</span><strong>Apps Móveis</strong><br>2023–24</span>
-    </button>
-
-    <button class="map-node map-node--ti" id="ti-atuacao" style="left:62.33%; top:130px;" data-title="Técnico em Tecnologia da Informação" data-tag="Experiência" data-year="2024 — atual" data-org="Prefeitura Municipal de Guarulhos — servidor público, 40h semanais" data-desc="">
-      <span class="node-dot"></span>
-      <span class="node-label"><span class="node-category">Experiência</span><strong>Técnico em TI</strong><br>2024–atual</span>
-    </button>
-
-    <button class="map-node map-node--ti" id="ti-eng" style="left:76.74%; top:130px;" data-title="Bacharelado em Engenharia de Computação" data-tag="Graduação" data-year="2025 — em andamento" data-org="Universidade Virtual do Estado de São Paulo (UNIVESP)" data-desc="">
-      <span class="node-dot"></span>
-      <span class="node-label"><span class="node-category">Graduação</span><strong>Engenharia de Computação</strong><br>2025–atual</span>
-    </button>
-
-    <button class="map-node map-node--gestao" id="gestao-atuacao" style="left:38.37%; top:330px;" data-title="Agente Técnico e Administrativo" data-tag="Experiência" data-year="2023 — 2024" data-org="Centro Estadual de Educação Tecnológica Paula Souza (CEETEPS) — servidor público, 40h semanais" data-desc="">
-      <span class="node-dot"></span>
-      <span class="node-label"><span class="node-category">Experiência</span><strong>Agente Técnico</strong><br>2023–24</span>
-    </button>
-
-    <button class="map-node map-node--gestao" id="gestao-grad" style="left:55.81%; top:330px;" data-title="Gestão Empresarial" data-tag="Graduação" data-year="2023 — 2025" data-org="Faculdade de Tecnologia de Guarulhos (Fatec GR)" data-desc="TCC: &quot;A implementação da política de lixo zero no meio acadêmico: um estudo de caso.&quot; Orientadora: Elaine Pasqualini.">
-      <span class="node-dot"></span>
-      <span class="node-label"><span class="node-category">Graduação</span><strong>Gestão Empresarial</strong><br>2023–25</span>
-    </button>
-
-    <button class="map-node map-node--gestao" id="gestao-pos" style="left:72.09%; top:330px;" data-title="Gestão Pública" data-tag="Pós-graduação" data-year="2023 — 2024" data-org="Faculdade IBRA de Minas Gerais" data-desc="">
-      <span class="node-dot"></span>
-      <span class="node-label"><span class="node-category">Pós-graduação</span><strong>Gestão Pública</strong><br>2023–24</span>
-    </button>
-
-    <button class="map-node map-node--educacao" id="edu-toeic" style="left:18.6%; top:530px;" data-title="Instrutor de Inglês — preparatório TOEIC" data-tag="Experiência autônoma" data-year="2023" data-org="Aulas particulares, atuação independente" data-desc="">
-      <span class="node-dot"></span>
-      <span class="node-label"><span class="node-category">Experiência</span><strong>Instrutor TOEIC</strong><br>2023</span>
-    </button>
-
-    <button class="map-node map-node--educacao" id="edu-grad" style="left:53.49%; top:530px;" data-title="Licenciatura em Letras — Português e Inglês" data-tag="Graduação" data-year="2023 — 2025" data-org="Centro Universitário ETEP" data-desc="TCC: &quot;Impactos e desafios da Inteligência Artificial na educação brasileira: uma revisão de literatura integrativa acerca do ChatGPT.&quot;">
-      <span class="node-dot"></span>
-      <span class="node-label"><span class="node-category">Graduação</span><strong>Letras</strong><br>2023–25</span>
-    </button>
-
-    <button class="map-node map-node--educacao" id="edu-pos" style="left:81.4%; top:530px;" data-title="Docência do Ensino Médio, Técnico e Superior" data-tag="Pós-graduação" data-year="2024 — 2025" data-org="Faculdade Grande São Paulo (FAGRAN)" data-desc="">
-      <span class="node-dot"></span>
-      <span class="node-label"><span class="node-category">Pós-graduação</span><strong>Docência</strong><br>2024–25</span>
-    </button>
-
-    <button class="map-node map-node--bridge" id="bridge-ti-gestao" style="left:61.05%; top:230px;" data-title="Especialização em Gestão de Tecnologia da Informação" data-tag="Pós-graduação · Interseção TI × Gestão" data-year="2024" data-org="Faculdade IBRA de Brasília" data-desc="Ponte direta entre as duas áreas: aplicar princípios de gestão à área técnica em que já atuo.">
-      <span class="node-dot node-dot--bridge"></span>
-      <span class="node-label node-label--bridge"><span class="node-category">Pós-graduação</span><strong>Gestão de TI</strong><br>2024</span>
-    </button>
-
-    <button class="map-node map-node--bridge" id="bridge-edu-ti" style="left:80.1%; top:393px;" data-title="Impactos e desafios da IA na educação brasileira" data-tag="Artigo · Interseção Educação × TI" data-year="2025" data-org="TCC — Licenciatura em Letras, Centro Universitário ETEP" data-desc="Pesquisa sobre o uso do ChatGPT em sala de aula, no mesmo momento em que iniciei a Engenharia de Computação — tecnologia e educação avançando lado a lado em 2025.">
-      <span class="node-dot node-dot--bridge"></span>
-      <span class="node-label node-label--bridge"><span class="node-category">Artigo</span><strong>IA na Educação</strong><br>2025</span>
-    </button>
-
+  <div class="detail-panel" id="detailPanel" hidden>
+    <div class="detail-inner">
+      <button class="detail-close" id="detailClose" aria-label="Fechar">✕</button>
+      <span class="detail-tag" id="detailTag"></span>
+      <h2 class="detail-title" id="detailTitle"></h2>
+      <p class="detail-org" id="detailOrg"></p>
+      <p class="detail-desc" id="detailDesc"></p>
+    </div>
   </div>
 </div>
 
-<div class="detail-panel" id="detailPanel" hidden>
-  <div class="detail-inner">
-    <button class="detail-close" id="detailClose" aria-label="Fechar">✕</button>
-    <span class="detail-tag" id="detailTag"></span>
-    <h2 class="detail-title" id="detailTitle"></h2>
-    <p class="detail-org" id="detailOrg"></p>
-    <p class="detail-desc" id="detailDesc"></p>
-  </div>
-</div>
+<main>
+
+  <section id="sobre" class="section section--neutral">
+    <div class="section-inner">
+      <span class="section-eyebrow">Sobre mim</span>
+      <h2 class="section-title">Quem sou</h2>
+      <p class="section-lead">
+        Formação acadêmica e profissional diversificada, cultivando curiosidade científica e
+        profissional em três eixos: Tecnologia da Informação, Gestão, e Educação — esta última
+        incluindo minha Licenciatura em Letras. Atualmente curso Engenharia de Computação na
+        UNIVESP, sou graduado em Análise e Desenvolvimento de Sistemas e em Gestão Empresarial
+        pela Fatec Guarulhos, e em Licenciatura em Letras — Português e Inglês pelo Centro
+        Universitário ETEP. Atuo como Técnico em Tecnologia da Informação, servidor público na
+        Prefeitura de Guarulhos.
+      </p>
+      <div class="identity-cards">
+        <div class="identity-card identity-card--ti">
+          <span class="identity-icon">&lt;/&gt;</span>
+          <h3>Tecnologia da Informação</h3>
+          <p>Da Análise e Desenvolvimento de Sistemas à Engenharia de Computação, passando por projetos mobile. Técnico em TI na Prefeitura de Guarulhos.</p>
+        </div>
+        <div class="identity-card identity-card--gestao">
+          <span class="identity-icon">▤</span>
+          <h3>Gestão</h3>
+          <p>Gestão Empresarial e pós-graduação em Gestão Pública, com experiência como agente técnico e administrativo em instituição estadual.</p>
+        </div>
+        <div class="identity-card identity-card--educacao">
+          <span class="identity-icon">§</span>
+          <h3>Educação</h3>
+          <p>Licenciatura em Letras — Português e Inglês, com pós-graduações em Docência do Ensino Médio, Técnico e Superior e em Tecnologias Aplicadas à Educação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ti" class="section section--ti">
+    <div class="section-inner">
+      <span class="section-eyebrow">// trilha.ti</span>
+      <h2 class="section-title">Tecnologia da Informação</h2>
+      <p class="section-lead section-lead--ti">Da graduação em Análise e Desenvolvimento de Sistemas até a atuação como servidor público, passando por uma pós-graduação em desenvolvimento mobile e a Engenharia de Computação em curso.</p>
+      <div class="rail">
+        <div class="rail-step">
+          <span class="rail-tag">Graduação</span>
+          <span class="rail-year">2020 — 2022</span>
+          <h3 class="rail-title">Análise e Desenvolvimento de Sistemas</h3>
+          <p class="rail-org">Faculdade de Tecnologia de Guarulhos (Fatec GR)</p>
+          <p class="rail-desc">TCC: "Planejamento de necessidade de materiais (MRP): desenvolvimento de software de apoio para cursos tecnológicos." Orientadora: Jane Maria dos Santos Eberson.</p>
+        </div>
+        <div class="rail-step">
+          <span class="rail-tag">Pós-graduação</span>
+          <span class="rail-year">2023 — 2024</span>
+          <h3 class="rail-title">Projetos de Aplicativos Móveis Multiplataforma</h3>
+          <p class="rail-org">Centro Universitário União das Américas Descomplica</p>
+        </div>
+        <div class="rail-step">
+          <span class="rail-tag">Graduação em andamento</span>
+          <span class="rail-year">2025 — 2030</span>
+          <h3 class="rail-title">Bacharelado em Engenharia de Computação</h3>
+          <p class="rail-org">Universidade Virtual do Estado de São Paulo (UNIVESP)</p>
+        </div>
+        <div class="rail-step rail-step--current">
+          <span class="rail-tag">Atuação</span>
+          <span class="rail-year">2024 — atual</span>
+          <h3 class="rail-title">Técnico em Tecnologia da Informação</h3>
+          <p class="rail-org">Prefeitura Municipal de Guarulhos — servidor público, 40h semanais</p>
+        </div>
+      </div>
+      <span class="badge-heading">Certificações</span>
+      <div class="badge-grid">
+        <span class="badge">Microsoft Certified: Power Platform Fundamentals</span>
+        <span class="badge">Microsoft Certified: Azure AI Fundamentals</span>
+        <span class="badge">CCNA: Introduction to Networks — Cisco</span>
+        <span class="badge">CyberOps Associate — Cisco</span>
+        <span class="badge">Introduction to IoT2 — Cisco Networking Academy</span>
+        <span class="badge">Python Fundamentos para Análise de Dados — DSA</span>
+        <span class="badge">Inteligência Artificial Fundamentos 2.0 — DSA</span>
+        <span class="badge">Santander Bootcamp: Mobile Kotlin Developer — DIO</span>
+        <span class="badge">Bootcamp HTML Web Developer — DIO</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="gestao" class="section section--gestao">
+    <div class="section-inner">
+      <span class="section-eyebrow">Trilha · Gestão</span>
+      <h2 class="section-title">Gestão</h2>
+      <p class="section-lead section-lead--gestao">Formação em Gestão Empresarial aprofundada com uma pós-graduação em Gestão Pública, aplicadas na atuação como agente técnico e administrativo.</p>
+      <div class="rail">
+        <div class="rail-step">
+          <span class="rail-tag">Graduação</span>
+          <span class="rail-year">2023 — 2025</span>
+          <h3 class="rail-title">Gestão Empresarial</h3>
+          <p class="rail-org">Faculdade de Tecnologia de Guarulhos (Fatec GR)</p>
+          <p class="rail-desc">TCC: "A implementação da política de lixo zero no meio acadêmico: um estudo de caso." Orientadora: Elaine Pasqualini.</p>
+        </div>
+        <div class="rail-step">
+          <span class="rail-tag">Pós-graduação</span>
+          <span class="rail-year">2023 — 2024</span>
+          <h3 class="rail-title">Gestão Pública</h3>
+          <p class="rail-org">Faculdade IBRA de Minas Gerais</p>
+        </div>
+        <div class="rail-step rail-step--current">
+          <span class="rail-tag">Atuação</span>
+          <span class="rail-year">2023 — 2024</span>
+          <h3 class="rail-title">Agente Técnico e Administrativo</h3>
+          <p class="rail-org">Centro Estadual de Educação Tecnológica Paula Souza (CEETEPS) — servidor público, 40h semanais</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="educacao" class="section section--educacao">
+    <div class="section-inner">
+      <span class="section-eyebrow">Trilha · Educação &amp; Letras</span>
+      <h2 class="section-title">Educação</h2>
+      <p class="section-lead section-lead--educacao">Licenciatura em Letras — Português e Inglês, complementada por pós-graduações em Docência do Ensino Médio, Técnico e Superior e em Tecnologias Aplicadas à Educação.</p>
+      <div class="rail">
+        <div class="rail-step">
+          <span class="rail-tag">Graduação</span>
+          <span class="rail-year">2023 — 2025</span>
+          <h3 class="rail-title">Licenciatura em Letras — Português e Inglês</h3>
+          <p class="rail-org">Centro Universitário ETEP</p>
+          <p class="rail-desc">TCC: "Impactos e desafios da Inteligência Artificial na educação brasileira: uma revisão de literatura integrativa acerca do ChatGPT."</p>
+        </div>
+        <div class="rail-step">
+          <span class="rail-tag">Pós-graduação</span>
+          <span class="rail-year">2024 — 2025</span>
+          <h3 class="rail-title">Docência do Ensino Médio, Técnico e Superior</h3>
+          <p class="rail-org">Faculdade Grande São Paulo (FAGRAN)</p>
+        </div>
+        <div class="rail-step rail-step--current">
+          <span class="rail-tag">Pós-graduação</span>
+          <span class="rail-year">2025 — 2026</span>
+          <h3 class="rail-title">Tecnologias Aplicadas à Educação</h3>
+          <p class="rail-org">Centro Universitário União das Américas Descomplica</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="transdisciplinaridade" class="section section--transdisciplinar">
+    <div class="section-inner">
+      <span class="section-eyebrow">Onde as trilhas se cruzam</span>
+      <h2 class="section-title">Transdisciplinaridade</h2>
+      <p class="section-lead">Tecnologia, gestão e educação não caminham isoladas — algumas formações e projetos nasceram exatamente no cruzamento entre elas.</p>
+
+      <div class="bridge-diagram" aria-hidden="true">
+        <span class="bridge-line bridge-line--ti"></span>
+        <span class="bridge-line bridge-line--gestao"></span>
+        <span class="bridge-line bridge-line--educacao"></span>
+      </div>
+
+      <div class="bridge-grid">
+        <article class="bridge-card">
+          <div class="bridge-tags">
+            <span class="tag tag--ti">TI</span>
+            <span class="bridge-x">×</span>
+            <span class="tag tag--gestao">Gestão</span>
+          </div>
+          <h3>Especialização em Gestão de Tecnologia da Informação</h3>
+          <p class="card-meta">Pós-graduação — Faculdade IBRA de Brasília — 2024</p>
+          <p>Ponte direta entre as duas áreas: aplicar princípios de gestão à área técnica em que já atuo.</p>
+        </article>
+        <article class="bridge-card">
+          <div class="bridge-tags">
+            <span class="tag tag--educacao">Educação</span>
+            <span class="bridge-x">×</span>
+            <span class="tag tag--ti">TI</span>
+          </div>
+          <h3>Impactos e desafios da IA na educação brasileira</h3>
+          <p class="card-meta">TCC — Licenciatura em Letras, 2025</p>
+          <p>Pesquisa sobre o uso do ChatGPT em sala de aula, unindo minha vivência em tecnologia à formação em Letras.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <footer class="footer">
-  <p>&copy; <span id="year"></span> Rafael Oliveira Rufini</p>
+  <p>&copy; <span id="year"></span> Rafael Oliveira Rufini. Feito com HTML, CSS e um pé em cada área.</p>
 </footer>
 
 <script src="script.js"></script>
